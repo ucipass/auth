@@ -1,9 +1,21 @@
-const httpserver = require("./lib/httpserver.js")
+process.on('SIGINT', function() {
+    console.log( "\nGracefully shutting down from SIGINT (Ctrl-C)" );
+    process.exit(0);
+});
 
-const port = 3000
-const app = require("./lib/app.js")    
-const server = new httpserver( {app:app, port:port})   
+process.on('SIGTERM', function() {
+    console.log( "\nGracefully shutting down from SIGTERM" );
+    process.exit(0);
+});
+
+PORT = process.env.PORT ? process.env.PORT : "80"
+
+const httpserver = require("./lib/httpserver.js")
+const app = require("./lib/app.js")  
+const log = require("ucipass-logger")("auth_main")
+
+const server = new httpserver( {app: app, port: PORT})   
 server.start()
 .catch((error)=>{
-    console.log("Failed to start server",error.message)
+    log.error("Failed to start server",error.message)
 })

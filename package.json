@@ -1,0 +1,34 @@
+{
+  "name": "auth",
+  "version": "1.0.0",
+  "description": "Authentication microservice based on various backend DB",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucipass/auth.git"
+  },
+  "keywords": [
+    "auth"
+  ],
+  "author": "ucipass",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ucipass/auth/issues"
+  },
+  "homepage": "https://github.com/ucipass/auth#readme",
+  "dependencies": {
+    "connect-redis": "^6.1.3",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "redis": "^4.0.6",
+    "ucipass-logger": "^1.0.7"
+  }
+}

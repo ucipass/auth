@@ -19,7 +19,13 @@
             "name": "Launch Program",
             "program": "${workspaceRoot}/index.js",
             "internalConsoleOptions": "openOnSessionStart",
-            "outputCapture": "std"
+            "outputCapture": "std",
+            "env": {
+                "USERNAME"  : "admin",
+                "PASSWORD"  : "admin",
+                "PORT"      : "3000",
+                "REDIS_URL" : "redis://:foobared@172.18.2.64"
+            }
         },
     ]
 
