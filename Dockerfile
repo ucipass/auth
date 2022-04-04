@@ -4,8 +4,11 @@ WORKDIR /source/auth
 COPY ./package.json ./package.json
 COPY ./index.js ./index.js
 COPY ./lib ./lib
-COPY ./public ./public
-RUN mkdir -p ./frontend
+COPY ./frontend ./frontend
+WORKDIR /source/auth/frontend
+RUN npm install
+RUN npm run build
+WORKDIR /source/auth
 COPY ./frontend/dist ./frontend/dist
 RUN npm install --only=production
 
