@@ -4,6 +4,7 @@ WORKDIR /source/auth
 COPY ./package.json ./package.json
 COPY ./index.js ./index.js
 COPY ./lib ./lib
+COPY ./public ./public
 WORKDIR /source/auth
 RUN npm install --only=production
 
