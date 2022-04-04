@@ -8,7 +8,7 @@
     <div v-if="loggedIn">
       <i class="bi bi-door-open   text-success" style="font-size: 16rem;"></i>
       <div class="d-flex justify-content-center ">
-        <h1 class="m-0">Logged in as: admin</h1>
+        <h1 class="m-0">Authorized: admin</h1>
         <button type="button" class="ms-2 btn btn-danger" @click="logout"><i class="bi bi-box-arrow-right"  style="font-size: 1.5rem;"></i></button>
       </div>
       
