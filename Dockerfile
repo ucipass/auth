@@ -5,9 +5,8 @@ COPY ./package.json ./package.json
 COPY ./index.js ./index.js
 COPY ./lib ./lib
 COPY ./public ./public
-RUN mkdir -p /frontend
+RUN mkdir -p ./frontend
 COPY ./frontend/dist ./frontend/dist
-WORKDIR /source/auth
 RUN npm install --only=production
 
 ENV NODE_PATH=/source/auth
