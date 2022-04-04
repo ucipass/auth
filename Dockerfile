@@ -9,7 +9,6 @@ WORKDIR /source/auth/frontend
 RUN npm install
 RUN npm run build
 WORKDIR /source/auth
-COPY ./frontend/dist ./frontend/dist
 RUN npm install --only=production
 
 ENV NODE_PATH=/source/auth
