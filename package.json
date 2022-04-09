@@ -7,6 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
+    "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,5 +32,9 @@
     "passport-local": "^1.0.0",
     "redis": "^4.0.6",
     "ucipass-logger": "^1.0.7"
+  },
+  "devDependencies": {
+    "webpack": "^5.71.0",
+    "webpack-cli": "^4.9.2"
   }
 }

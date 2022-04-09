@@ -10,11 +10,11 @@ process.on('SIGTERM', function() {
 
 PORT = process.env.PORT ? process.env.PORT : "80"
 
-const httpserver = require("./lib/httpserver.js")
-const app = require("./lib/app.js")  
-const log = require("ucipass-logger")("auth_main")
+const Server = require("./lib/httpserver.js")
+const app    = require("./lib/app.js")  
+const log    = require("ucipass-logger")("auth_main")
 
-const server = new httpserver( {app: app, port: PORT})   
+const server = new Server( {app: app, port: PORT})   
 server.start()
 .catch((error)=>{
     log.error("Failed to start server",error.message)
