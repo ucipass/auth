@@ -20,7 +20,7 @@
       </div>
       
       <div class="d-flex justify-content-center ">
-        <h1 class="m-0">Authorized: admin</h1>
+        <h1 class="m-0">Authorized: {{username}}</h1>
       </div>
       <div>
         <button onclick="location.href='/auth/saml/logout'" type="button" class="btn btn-success">Logout</button>
@@ -64,9 +64,16 @@ export default {
     },    
     status: async function () {
       try {
-        let response = await axios.get( STATUS_URL ,{ withCredentials: true })   
-        store.loggedIn = true
-        store.username = store.inputFormLogin.values.username
+        let response = await axios.get( STATUS_URL ,{ withCredentials: true })
+        try {
+          console.log(`User: ${response.data.id}`)
+          store.loggedIn = true
+          store.username = response.data.id
+        } catch (error) {
+          console.log("no user info found in status reply!")
+          store.loggedIn = false
+          store.username = "anonymous"
+        }
         console.log(`status: ${response.status}, ${response.statusText}`)
       } catch (error) {
         store.loggedIn = false
@@ -81,6 +88,13 @@ export default {
   computed: {
     loggedIn: function () {
       return store.loggedIn
+    },
+    username: function () {
+      try {
+        return store.username
+      } catch (error) {
+        return "anonymous"
+      }
     }
   },
   mounted: function () {
