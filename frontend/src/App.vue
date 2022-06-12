@@ -36,7 +36,7 @@
 <script>
 const LOGOUT_URL      = "/auth/logout"
 // const LOGIN_URL = "/auth/login"
-const STATUS_URL = "http://localhost:3000/auth/status"
+const STATUS_URL = "/auth/status"
 import ModalLogin from './components/ModalLogin.vue'
 import { store }  from './store.js'
 import { Modal } from 'bootstrap';
