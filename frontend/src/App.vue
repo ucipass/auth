@@ -84,6 +84,15 @@ export default {
         // myModal.show()
       }
     },
+    setCookie(name,value,days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    },
   },
   computed: {
     loggedIn: function () {
@@ -100,6 +109,7 @@ export default {
   mounted: function () {
     console.log("Mounted:", "Home")
     this.status()
+    this.setCookie("lastURL","/auth",1)
     // setInterval(() => {
     //   if ( ! store.loggedIn && ! document.getElementById('ModalLogin').classList.contains("show")) {
     //     let element = document.getElementById('ModalLogin')
