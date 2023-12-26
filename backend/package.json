@@ -1,0 +1,45 @@
+{
+  "name": "auth",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Authentication microservice based on various backend DB",
+  "main": "./dist/bundle.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "PORT=3000 node index.js",
+    "test": "mocha",
+    "push": "cd .. ; docker buildx build --push --platform linux/amd64,linux/arm64 -t registry.arato.biz/auth:latest ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucipass/auth.git"
+  },
+  "keywords": [
+    "auth"
+  ],
+  "author": "ucipass",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ucipass/auth/issues"
+  },
+  "homepage": "https://github.com/ucipass/auth#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "connect-redis": "^7.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "express-session": "^1.17.3",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "redis": "^4.6.12",
+    "serve-index": "^1.9.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0"
+  }
+}

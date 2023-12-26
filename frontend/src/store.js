@@ -4,17 +4,24 @@ export const store = reactive({
   loggedIn: false,
   username: "",
   password: "",
-  inputFormLogin:{
-    input_rows: [
-      { id: "username", label: "Username", information: "Enter your username" , placeholder: "Enter your username" },
-      { id: "password", label: "Password", information: "Enter your password" , placeholder: "Enter your password" , type: "password"},
-    ],
-    values:{
-      // username: "admin",
-      // password: process.env.NODE_ENV === "development" ? "Admin123#": "",
-      username: "",
-      password: ""
-    },
+  statusMessage: "",
+  inputs:{
+    inputFormLogin:{
+      username: { 
+        label: "Username", 
+        type: "text",
+        placeholder: "Enter username here...",
+        information: "Enter username here...",
+        value: ""
+      },
+      password: { 
+        label: "Password", 
+        type: "password",
+        placeholder: "Enter password here...",
+        information: "Enter password here...",
+        value: ""
+      },
+    }
   },
 
 })
